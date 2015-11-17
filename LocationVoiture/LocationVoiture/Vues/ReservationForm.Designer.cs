@@ -29,6 +29,21 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbReservationCreate_noPlaque = new System.Windows.Forms.ComboBox();
+            this.cbReservationCreate_nbPassager = new System.Windows.Forms.ComboBox();
+            this.cbReservationCreate_model = new System.Windows.Forms.ComboBox();
+            this.cbReservationCreate_marque = new System.Windows.Forms.ComboBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.dateTimePicker_ReservationCreate = new System.Windows.Forms.DateTimePicker();
+            this.button1 = new System.Windows.Forms.Button();
             this.lblClientCreate_clientId = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtClientCreate_clientId = new System.Windows.Forms.TextBox();
@@ -55,22 +70,10 @@
             this.lblClientCreate_nom = new System.Windows.Forms.Label();
             this.txtClientCreate_cancel = new System.Windows.Forms.Button();
             this.btnClientCreate_add = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.cbReservationCreate_noPlaque = new System.Windows.Forms.ComboBox();
-            this.cbReservationCreate_nbPassager = new System.Windows.Forms.ComboBox();
-            this.cbReservationCreate_model = new System.Windows.Forms.ComboBox();
-            this.cbReservation_marque = new System.Windows.Forms.ComboBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.dateTimePicker_ReservationCreate = new System.Windows.Forms.DateTimePicker();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblReservationCreate_succursale = new System.Windows.Forms.Label();
+            this.cbReservationCreate_Succursale = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelClientForm_id.SuspendLayout();
             this.panel13.SuspendLayout();
@@ -78,7 +81,6 @@
             this.panel11.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -86,12 +88,14 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.cbReservationCreate_Succursale);
+            this.panel1.Controls.Add(this.lblReservationCreate_succursale);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.cbReservationCreate_noPlaque);
             this.panel1.Controls.Add(this.cbReservationCreate_nbPassager);
             this.panel1.Controls.Add(this.cbReservationCreate_model);
-            this.panel1.Controls.Add(this.cbReservation_marque);
+            this.panel1.Controls.Add(this.cbReservationCreate_marque);
             this.panel1.Controls.Add(this.label25);
             this.panel1.Controls.Add(this.label24);
             this.panel1.Controls.Add(this.label23);
@@ -123,6 +127,184 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(889, 489);
             this.panel1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Gray;
+            this.label1.Location = new System.Drawing.Point(492, 379);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 21);
+            this.label1.TabIndex = 121;
+            this.label1.Text = "Heure";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.BackColor = System.Drawing.SystemColors.MenuText;
+            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.comboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(562, 381);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(117, 21);
+            this.comboBox1.TabIndex = 120;
+            // 
+            // cbReservationCreate_noPlaque
+            // 
+            this.cbReservationCreate_noPlaque.BackColor = System.Drawing.SystemColors.MenuText;
+            this.cbReservationCreate_noPlaque.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbReservationCreate_noPlaque.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.cbReservationCreate_noPlaque.FormattingEnabled = true;
+            this.cbReservationCreate_noPlaque.Location = new System.Drawing.Point(625, 265);
+            this.cbReservationCreate_noPlaque.Name = "cbReservationCreate_noPlaque";
+            this.cbReservationCreate_noPlaque.Size = new System.Drawing.Size(222, 21);
+            this.cbReservationCreate_noPlaque.TabIndex = 118;
+            // 
+            // cbReservationCreate_nbPassager
+            // 
+            this.cbReservationCreate_nbPassager.BackColor = System.Drawing.SystemColors.MenuText;
+            this.cbReservationCreate_nbPassager.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbReservationCreate_nbPassager.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.cbReservationCreate_nbPassager.FormattingEnabled = true;
+            this.cbReservationCreate_nbPassager.Location = new System.Drawing.Point(625, 234);
+            this.cbReservationCreate_nbPassager.Name = "cbReservationCreate_nbPassager";
+            this.cbReservationCreate_nbPassager.Size = new System.Drawing.Size(222, 21);
+            this.cbReservationCreate_nbPassager.TabIndex = 117;
+            this.cbReservationCreate_nbPassager.SelectedIndexChanged += new System.EventHandler(this.cbReservationCreate_nbPassager_SelectedIndexChanged);
+            // 
+            // cbReservationCreate_model
+            // 
+            this.cbReservationCreate_model.BackColor = System.Drawing.SystemColors.MenuText;
+            this.cbReservationCreate_model.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbReservationCreate_model.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.cbReservationCreate_model.FormattingEnabled = true;
+            this.cbReservationCreate_model.Location = new System.Drawing.Point(625, 203);
+            this.cbReservationCreate_model.Name = "cbReservationCreate_model";
+            this.cbReservationCreate_model.Size = new System.Drawing.Size(222, 21);
+            this.cbReservationCreate_model.TabIndex = 116;
+            // 
+            // cbReservationCreate_marque
+            // 
+            this.cbReservationCreate_marque.BackColor = System.Drawing.SystemColors.MenuText;
+            this.cbReservationCreate_marque.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbReservationCreate_marque.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.cbReservationCreate_marque.FormattingEnabled = true;
+            this.cbReservationCreate_marque.Location = new System.Drawing.Point(625, 174);
+            this.cbReservationCreate_marque.Name = "cbReservationCreate_marque";
+            this.cbReservationCreate_marque.Size = new System.Drawing.Size(222, 21);
+            this.cbReservationCreate_marque.TabIndex = 115;
+            this.cbReservationCreate_marque.SelectedIndexChanged += new System.EventHandler(this.cbReservation_marque_SelectedIndexChanged);
+            // 
+            // label25
+            // 
+            this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.ForeColor = System.Drawing.Color.Silver;
+            this.label25.Location = new System.Drawing.Point(462, 233);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(157, 21);
+            this.label25.TabIndex = 114;
+            this.label25.Text = "Nombre de passager :";
+            // 
+            // label24
+            // 
+            this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.Color.Silver;
+            this.label24.Location = new System.Drawing.Point(475, 263);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(144, 21);
+            this.label24.TabIndex = 113;
+            this.label24.Text = "Numéro de plaque :";
+            // 
+            // label23
+            // 
+            this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.Silver;
+            this.label23.Location = new System.Drawing.Point(559, 203);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(60, 21);
+            this.label23.TabIndex = 112;
+            this.label23.Text = "Model :";
+            // 
+            // label17
+            // 
+            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.Silver;
+            this.label17.Location = new System.Drawing.Point(549, 173);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(70, 21);
+            this.label17.TabIndex = 111;
+            this.label17.Text = "Marque :";
+            // 
+            // label22
+            // 
+            this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.Gray;
+            this.label22.Location = new System.Drawing.Point(502, 349);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(46, 21);
+            this.label22.TabIndex = 110;
+            this.label22.Text = "Date";
+            // 
+            // label21
+            // 
+            this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.Gray;
+            this.label21.Location = new System.Drawing.Point(622, 142);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(66, 21);
+            this.label21.TabIndex = 109;
+            this.label21.Text = "Voiture";
+            // 
+            // panel6
+            // 
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.dateTimePicker_ReservationCreate);
+            this.panel6.Location = new System.Drawing.Point(562, 349);
+            this.panel6.Name = "panel6";
+            this.panel6.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.panel6.Size = new System.Drawing.Size(287, 23);
+            this.panel6.TabIndex = 106;
+            // 
+            // dateTimePicker_ReservationCreate
+            // 
+            this.dateTimePicker_ReservationCreate.CalendarMonthBackground = System.Drawing.Color.Black;
+            this.dateTimePicker_ReservationCreate.CalendarTitleBackColor = System.Drawing.Color.Black;
+            this.dateTimePicker_ReservationCreate.CalendarTrailingForeColor = System.Drawing.SystemColors.Desktop;
+            this.dateTimePicker_ReservationCreate.Location = new System.Drawing.Point(0, 1);
+            this.dateTimePicker_ReservationCreate.MinDate = new System.DateTime(2015, 11, 12, 0, 0, 0, 0);
+            this.dateTimePicker_ReservationCreate.Name = "dateTimePicker_ReservationCreate";
+            this.dateTimePicker_ReservationCreate.Size = new System.Drawing.Size(286, 20);
+            this.dateTimePicker_ReservationCreate.TabIndex = 36;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.button1.BackColor = System.Drawing.Color.Teal;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(315, 101);
+            this.button1.Margin = new System.Windows.Forms.Padding(0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(113, 23);
+            this.button1.TabIndex = 105;
+            this.button1.Text = "CRÉER";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // lblClientCreate_clientId
             // 
@@ -434,179 +616,29 @@
             this.btnClientCreate_add.UseVisualStyleBackColor = false;
             this.btnClientCreate_add.Click += new System.EventHandler(this.btnClientCreate_add_Click);
             // 
-            // button1
+            // lblReservationCreate_succursale
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.button1.BackColor = System.Drawing.Color.Teal;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(315, 101);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(113, 23);
-            this.button1.TabIndex = 105;
-            this.button1.Text = "CRÉER";
-            this.button1.UseVisualStyleBackColor = false;
+            this.lblReservationCreate_succursale.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lblReservationCreate_succursale.AutoSize = true;
+            this.lblReservationCreate_succursale.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReservationCreate_succursale.ForeColor = System.Drawing.Color.Gray;
+            this.lblReservationCreate_succursale.Location = new System.Drawing.Point(516, 73);
+            this.lblReservationCreate_succursale.Name = "lblReservationCreate_succursale";
+            this.lblReservationCreate_succursale.Size = new System.Drawing.Size(91, 21);
+            this.lblReservationCreate_succursale.TabIndex = 122;
+            this.lblReservationCreate_succursale.Text = "Succursale";
             // 
-            // cbReservationCreate_noPlaque
+            // cbReservationCreate_Succursale
             // 
-            this.cbReservationCreate_noPlaque.BackColor = System.Drawing.SystemColors.MenuText;
-            this.cbReservationCreate_noPlaque.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbReservationCreate_noPlaque.FormattingEnabled = true;
-            this.cbReservationCreate_noPlaque.Location = new System.Drawing.Point(625, 265);
-            this.cbReservationCreate_noPlaque.Name = "cbReservationCreate_noPlaque";
-            this.cbReservationCreate_noPlaque.Size = new System.Drawing.Size(222, 21);
-            this.cbReservationCreate_noPlaque.TabIndex = 118;
-            // 
-            // cbReservationCreate_nbPassager
-            // 
-            this.cbReservationCreate_nbPassager.BackColor = System.Drawing.SystemColors.MenuText;
-            this.cbReservationCreate_nbPassager.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbReservationCreate_nbPassager.FormattingEnabled = true;
-            this.cbReservationCreate_nbPassager.Location = new System.Drawing.Point(625, 234);
-            this.cbReservationCreate_nbPassager.Name = "cbReservationCreate_nbPassager";
-            this.cbReservationCreate_nbPassager.Size = new System.Drawing.Size(222, 21);
-            this.cbReservationCreate_nbPassager.TabIndex = 117;
-            // 
-            // cbReservationCreate_model
-            // 
-            this.cbReservationCreate_model.BackColor = System.Drawing.SystemColors.MenuText;
-            this.cbReservationCreate_model.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbReservationCreate_model.FormattingEnabled = true;
-            this.cbReservationCreate_model.Location = new System.Drawing.Point(625, 203);
-            this.cbReservationCreate_model.Name = "cbReservationCreate_model";
-            this.cbReservationCreate_model.Size = new System.Drawing.Size(222, 21);
-            this.cbReservationCreate_model.TabIndex = 116;
-            // 
-            // cbReservation_marque
-            // 
-            this.cbReservation_marque.BackColor = System.Drawing.SystemColors.MenuText;
-            this.cbReservation_marque.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbReservation_marque.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.cbReservation_marque.FormattingEnabled = true;
-            this.cbReservation_marque.Location = new System.Drawing.Point(625, 174);
-            this.cbReservation_marque.Name = "cbReservation_marque";
-            this.cbReservation_marque.Size = new System.Drawing.Size(222, 21);
-            this.cbReservation_marque.TabIndex = 115;
-            this.cbReservation_marque.SelectedIndexChanged += new System.EventHandler(this.cbReservation_marque_SelectedIndexChanged);
-            // 
-            // label25
-            // 
-            this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.ForeColor = System.Drawing.Color.Silver;
-            this.label25.Location = new System.Drawing.Point(462, 233);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(157, 21);
-            this.label25.TabIndex = 114;
-            this.label25.Text = "Nombre de passager :";
-            // 
-            // label24
-            // 
-            this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.ForeColor = System.Drawing.Color.Silver;
-            this.label24.Location = new System.Drawing.Point(475, 263);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(144, 21);
-            this.label24.TabIndex = 113;
-            this.label24.Text = "Numéro de plaque :";
-            // 
-            // label23
-            // 
-            this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.Silver;
-            this.label23.Location = new System.Drawing.Point(559, 203);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(60, 21);
-            this.label23.TabIndex = 112;
-            this.label23.Text = "Model :";
-            // 
-            // label17
-            // 
-            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.Silver;
-            this.label17.Location = new System.Drawing.Point(549, 173);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(70, 21);
-            this.label17.TabIndex = 111;
-            this.label17.Text = "Marque :";
-            // 
-            // label22
-            // 
-            this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.Gray;
-            this.label22.Location = new System.Drawing.Point(502, 349);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(46, 21);
-            this.label22.TabIndex = 110;
-            this.label22.Text = "Date";
-            // 
-            // label21
-            // 
-            this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.Gray;
-            this.label21.Location = new System.Drawing.Point(564, 142);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(66, 21);
-            this.label21.TabIndex = 109;
-            this.label21.Text = "Voiture";
-            // 
-            // panel6
-            // 
-            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel6.Controls.Add(this.dateTimePicker_ReservationCreate);
-            this.panel6.Location = new System.Drawing.Point(562, 349);
-            this.panel6.Name = "panel6";
-            this.panel6.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.panel6.Size = new System.Drawing.Size(287, 23);
-            this.panel6.TabIndex = 106;
-            // 
-            // dateTimePicker_ReservationCreate
-            // 
-            this.dateTimePicker_ReservationCreate.CalendarMonthBackground = System.Drawing.Color.Black;
-            this.dateTimePicker_ReservationCreate.CalendarTitleBackColor = System.Drawing.Color.Black;
-            this.dateTimePicker_ReservationCreate.CalendarTrailingForeColor = System.Drawing.SystemColors.Desktop;
-            this.dateTimePicker_ReservationCreate.Location = new System.Drawing.Point(0, 1);
-            this.dateTimePicker_ReservationCreate.MinDate = new System.DateTime(2015, 11, 12, 0, 0, 0, 0);
-            this.dateTimePicker_ReservationCreate.Name = "dateTimePicker_ReservationCreate";
-            this.dateTimePicker_ReservationCreate.Size = new System.Drawing.Size(286, 20);
-            this.dateTimePicker_ReservationCreate.TabIndex = 36;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.BackColor = System.Drawing.SystemColors.MenuText;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.comboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(562, 381);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(117, 21);
-            this.comboBox1.TabIndex = 120;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Gray;
-            this.label1.Location = new System.Drawing.Point(492, 379);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 21);
-            this.label1.TabIndex = 121;
-            this.label1.Text = "Heure";
+            this.cbReservationCreate_Succursale.BackColor = System.Drawing.SystemColors.MenuText;
+            this.cbReservationCreate_Succursale.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbReservationCreate_Succursale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.cbReservationCreate_Succursale.FormattingEnabled = true;
+            this.cbReservationCreate_Succursale.Location = new System.Drawing.Point(627, 74);
+            this.cbReservationCreate_Succursale.Name = "cbReservationCreate_Succursale";
+            this.cbReservationCreate_Succursale.Size = new System.Drawing.Size(222, 21);
+            this.cbReservationCreate_Succursale.TabIndex = 123;
+            this.cbReservationCreate_Succursale.SelectedIndexChanged += new System.EventHandler(this.cbReservationCreate_Succursale_SelectedIndexChanged);
             // 
             // ReservationForm
             // 
@@ -623,6 +655,7 @@
             this.Text = "Form3";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel6.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panelClientForm_id.ResumeLayout(false);
@@ -637,7 +670,6 @@
             this.panel9.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
-            this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -675,7 +707,7 @@
         private System.Windows.Forms.ComboBox cbReservationCreate_noPlaque;
         private System.Windows.Forms.ComboBox cbReservationCreate_nbPassager;
         private System.Windows.Forms.ComboBox cbReservationCreate_model;
-        private System.Windows.Forms.ComboBox cbReservation_marque;
+        private System.Windows.Forms.ComboBox cbReservationCreate_marque;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label23;
@@ -686,5 +718,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker_ReservationCreate;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbReservationCreate_Succursale;
+        private System.Windows.Forms.Label lblReservationCreate_succursale;
     }
 }

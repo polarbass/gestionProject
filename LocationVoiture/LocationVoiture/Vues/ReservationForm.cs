@@ -25,6 +25,9 @@ namespace LocationVoiture.Vues
 
         private ClientsServices clientServices { get; set; }
         private VehiculeServices vehiculeServices { get; set; }
+        private SuccursalesServices succursalesService { get; set; }
+
+        private List<vehicule> listeVehicule { get; set; }
 
         // Constructeur
 
@@ -34,6 +37,7 @@ namespace LocationVoiture.Vues
             
             clientServices = new ClientsServices();
             vehiculeServices = new VehiculeServices();
+            succursalesService = new SuccursalesServices();
 
             fillTheComboBox();
             lblClientCreate_operation.Text = operation;
@@ -157,15 +161,22 @@ namespace LocationVoiture.Vues
 
         private void fillTheComboBox()
         {
-            List<fabriquant> listeFabriquant = new List<fabriquant>();
-            listeFabriquant = vehiculeServices.getAllFabriquant();
 
-            foreach(fabriquant fab in listeFabriquant)
+            listeVehicule = new List<vehicule>();
+
+            List<succursale> listeSuccursales = new List<succursale>();           
+            listeSuccursales = succursalesService.getAllSuccursale();
+
+            foreach (succursale succ in listeSuccursales)
             {
-                cbReservation_marque.Items.Add(fab.nom_fabriquant);
+                cbReservationCreate_Succursale.Items.Add(succ.succursaleID + " - " + succ.nom);
             }
 
-            cbReservation_marque.SelectedIndex = 0;
+            cbReservationCreate_Succursale.SelectedIndex = 0;
+
+            int succID = int.Parse(cbReservationCreate_Succursale.SelectedItem.ToString().Substring(0, 1));            
+            listeVehicule = vehiculeServices.getVehiculeFromSuccursale(succID);
+
         }
 
         private void emptyClientFormFields()
@@ -191,7 +202,67 @@ namespace LocationVoiture.Vues
 
         private void cbReservation_marque_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MessageBox.Show(cbReservation_marque.SelectedItem.ToString());
+            //MessageBox.Show(cbReservationCreate_marque.SelectedItem.ToString());
+        }
+
+        private void cbReservationCreate_Succursale_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            cbReservationCreate_marque.Items.Clear();
+
+            int succID = int.Parse(cbReservationCreate_Succursale.SelectedItem.ToString().Substring(0, 1));
+
+            List<fabriquant> listeFabriquant = new List<fabriquant>();
+            listeFabriquant = vehiculeServices.getDistinctFabriquant(succID);
+
+            List<modele> listeModele = new List<modele>();
+            listeModele = vehiculeServices.getDistinctModele(succID);
+
+            if (cbReservationCreate_Succursale.SelectedItem.ToString() != null)
+            {
+                foreach (fabriquant fab in listeFabriquant)
+                {
+                     cbReservationCreate_marque.Items.Add(fab.nom_fabriquant);
+                    
+                }
+            }
+
+            try
+            {
+                cbReservationCreate_marque.SelectedIndex = 0;
+            } catch
+            {
+                cbReservationCreate_marque.ResetText();
+                cbReservationCreate_marque.SelectedIndex = -1;
+                
+            }
+
+            if (cbReservationCreate_marque.SelectedItem.ToString() != null)
+            {
+                foreach (modele model in listeModele)
+                {
+                    cbReservationCreate_model.Items.Add(model.nom_modele);
+
+                }
+            }
+
+            try
+            {
+                cbReservationCreate_model.SelectedIndex = 0;
+            }
+            catch
+            {
+                cbReservationCreate_model.ResetText();
+                cbReservationCreate_model.SelectedIndex = -1;
+
+            }
+
+
+        }
+
+        private void cbReservationCreate_nbPassager_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

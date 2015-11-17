@@ -16,7 +16,6 @@ namespace LocationVoiture.Vues
     {
 
         // Attributs
-        // test de push
 
         private static string OPERATION_CLIENT_CREATION = "Création";
         private static string OPERATION_CLIENT_UPDATE = "Updater";

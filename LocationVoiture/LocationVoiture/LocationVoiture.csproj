@@ -115,6 +115,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\SuccursalesServices.cs" />
     <Compile Include="Services\VehiculeServices.cs" />
     <Compile Include="Services\LoginServices.cs" />
     <Compile Include="Services\ClientsServices.cs" />
