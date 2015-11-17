@@ -62,8 +62,11 @@ namespace LocationVoiture.Services
             List<client> clientFinder = new List<client>();
 
             if(searchValue != "")
-            {            
+            {
 
+                try
+                {
+                
                 // SEARCH BY CLIENT ID
                 if (searchBy.Equals("client id"))
                 {
@@ -114,6 +117,12 @@ namespace LocationVoiture.Services
                                 select c;
 
                     clientFinder = query.ToList();
+                }
+
+                }
+                catch
+                {
+                    Console.WriteLine("Erreur dans le find du client");
                 }
 
             }
