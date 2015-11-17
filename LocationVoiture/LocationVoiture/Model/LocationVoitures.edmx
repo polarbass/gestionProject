@@ -1,0 +1,886 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="locationvoitureModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="administrateurs">
+          <Key>
+            <PropertyRef Name="administrateurID" />
+          </Key>
+          <Property Name="administrateurID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="nom" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fonction" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="date_embauche" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="salaire_horaire" Type="float" />
+        </EntityType>
+        <EntityType Name="clients">
+          <Key>
+            <PropertyRef Name="clientID" />
+          </Key>
+          <Property Name="clientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="nom" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="date_enregistrement" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="telephone" Type="varchar" MaxLength="15" />
+          <Property Name="adresse_client" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="num_carte_credit" Type="bigint" />
+          <Property Name="permis_conduire_num" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="assurance" Type="varchar" MaxLength="50" />
+          <Property Name="courriel" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="prenom" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="constats_dommages">
+          <Key>
+            <PropertyRef Name="constantID" />
+          </Key>
+          <Property Name="constantID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="reservationID" Type="int" Nullable="false" />
+          <Property Name="employeID" Type="int" Nullable="false" />
+          <Property Name="date_constat" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="description_dommages" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="employes">
+          <Key>
+            <PropertyRef Name="employeID" />
+          </Key>
+          <Property Name="employeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="nom" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="fonction" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="date_embauche" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="salaire_horaire" Type="float" />
+          <Property Name="succursaleID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="fabriquants">
+          <Key>
+            <PropertyRef Name="fabriquantID" />
+          </Key>
+          <Property Name="fabriquantID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom_fabriquant" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="addresse_service" Type="varchar" MaxLength="50" />
+          <Property Name="telephone_service" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="locations">
+          <Key>
+            <PropertyRef Name="locationID" />
+          </Key>
+          <Property Name="locationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date_debut" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="date_fin" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="reservationID" Type="int" />
+          <Property Name="vehiculeID" Type="int" Nullable="false" />
+          <Property Name="employeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="modeles">
+          <Key>
+            <PropertyRef Name="modeleID" />
+          </Key>
+          <Property Name="modeleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="typeID" Type="int" Nullable="false" />
+          <Property Name="nom_modele" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="nb_place" Type="int" />
+          <Property Name="consommation_carburant" Type="float" />
+          <Property Name="transmission" Type="varchar" MaxLength="11" Nullable="false" />
+        </EntityType>
+        <EntityType Name="reservations">
+          <Key>
+            <PropertyRef Name="reservationID" />
+          </Key>
+          <Property Name="reservationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="clientID" Type="int" Nullable="false" />
+          <Property Name="employeID" Type="int" Nullable="false" />
+          <Property Name="vehiculeID" Type="int" Nullable="false" />
+          <Property Name="succursaleID" Type="int" Nullable="false" />
+          <Property Name="factureID" Type="int" />
+          <Property Name="date_appel_reservation" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="date_debut_reservation" Type="timestamp" Precision="0" />
+          <Property Name="date_fin_reservation" Type="timestamp" Precision="0" />
+          <Property Name="date_prise_vehicule" Type="timestamp" Precision="0" />
+          <Property Name="date_retour_vehicule" Type="timestamp" Precision="0" />
+        </EntityType>
+        <EntityType Name="succursales">
+          <Key>
+            <PropertyRef Name="succursaleID" />
+          </Key>
+          <Property Name="succursaleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="addresse" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="telephone" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="courriel" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nom" Type="varchar" MaxLength="60" Nullable="false" />
+        </EntityType>
+        <EntityType Name="types">
+          <Key>
+            <PropertyRef Name="typeID" />
+          </Key>
+          <Property Name="typeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom_type" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="commission" Type="float" Nullable="false" />
+          <Property Name="catégorie" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vehicules">
+          <Key>
+            <PropertyRef Name="vehiculeID" />
+          </Key>
+          <Property Name="vehiculeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="modeleID" Type="int" Nullable="false" />
+          <Property Name="fabriquantID" Type="int" Nullable="false" />
+          <Property Name="kilometrage" Type="int" />
+          <Property Name="plaque_num" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="loc_state" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="succursaleID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_clientId">
+          <End Role="clients" Type="Self.clients" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="reservations" Type="Self.reservations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clients">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="reservations">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_EmployeID">
+          <End Role="employes" Type="Self.employes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="reservations" Type="Self.reservations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employes">
+              <PropertyRef Name="employeID" />
+            </Principal>
+            <Dependent Role="reservations">
+              <PropertyRef Name="employeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_location_employe">
+          <End Role="employes" Type="Self.employes" Multiplicity="1" />
+          <End Role="locations" Type="Self.locations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employes">
+              <PropertyRef Name="employeID" />
+            </Principal>
+            <Dependent Role="locations">
+              <PropertyRef Name="employeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_location_reservation">
+          <End Role="reservations" Type="Self.reservations" Multiplicity="0..1" />
+          <End Role="locations" Type="Self.locations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="reservations">
+              <PropertyRef Name="reservationID" />
+            </Principal>
+            <Dependent Role="locations">
+              <PropertyRef Name="reservationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_location_vehicule">
+          <End Role="vehicules" Type="Self.vehicules" Multiplicity="1" />
+          <End Role="locations" Type="Self.locations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vehicules">
+              <PropertyRef Name="vehiculeID" />
+            </Principal>
+            <Dependent Role="locations">
+              <PropertyRef Name="vehiculeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_model_type">
+          <End Role="types" Type="Self.types" Multiplicity="1" />
+          <End Role="modeles" Type="Self.modeles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="types">
+              <PropertyRef Name="typeID" />
+            </Principal>
+            <Dependent Role="modeles">
+              <PropertyRef Name="typeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_reservationID">
+          <End Role="reservations" Type="Self.reservations" Multiplicity="1" />
+          <End Role="constats_dommages" Type="Self.constats_dommages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="reservations">
+              <PropertyRef Name="reservationID" />
+            </Principal>
+            <Dependent Role="constats_dommages">
+              <PropertyRef Name="reservationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_succursaleId">
+          <End Role="succursales" Type="Self.succursales" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="reservations" Type="Self.reservations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="succursales">
+              <PropertyRef Name="succursaleID" />
+            </Principal>
+            <Dependent Role="reservations">
+              <PropertyRef Name="succursaleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vehicule_fabriquant">
+          <End Role="fabriquants" Type="Self.fabriquants" Multiplicity="1" />
+          <End Role="vehicules" Type="Self.vehicules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fabriquants">
+              <PropertyRef Name="fabriquantID" />
+            </Principal>
+            <Dependent Role="vehicules">
+              <PropertyRef Name="fabriquantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vehicule_model">
+          <End Role="modeles" Type="Self.modeles" Multiplicity="1" />
+          <End Role="vehicules" Type="Self.vehicules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="modeles">
+              <PropertyRef Name="modeleID" />
+            </Principal>
+            <Dependent Role="vehicules">
+              <PropertyRef Name="modeleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vehicule_succursale">
+          <End Role="succursales" Type="Self.succursales" Multiplicity="1" />
+          <End Role="vehicules" Type="Self.vehicules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="succursales">
+              <PropertyRef Name="succursaleID" />
+            </Principal>
+            <Dependent Role="vehicules">
+              <PropertyRef Name="succursaleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_vehiculeId">
+          <End Role="vehicules" Type="Self.vehicules" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="reservations" Type="Self.reservations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vehicules">
+              <PropertyRef Name="vehiculeID" />
+            </Principal>
+            <Dependent Role="reservations">
+              <PropertyRef Name="vehiculeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="locationvoitureModelStoreContainer">
+          <EntitySet Name="administrateurs" EntityType="Self.administrateurs" Schema="locationvoiture" store:Type="Tables" />
+          <EntitySet Name="clients" EntityType="Self.clients" Schema="locationvoiture" store:Type="Tables" />
+          <EntitySet Name="constats_dommages" EntityType="Self.constats_dommages" Schema="locationvoiture" store:Type="Tables" />
+          <EntitySet Name="employes" EntityType="Self.employes" Schema="locationvoiture" store:Type="Tables" />
+          <EntitySet Name="fabriquants" EntityType="Self.fabriquants" Schema="locationvoiture" store:Type="Tables" />
+          <EntitySet Name="locations" EntityType="Self.locations" Schema="locationvoiture" store:Type="Tables" />
+          <EntitySet Name="modeles" EntityType="Self.modeles" Schema="locationvoiture" store:Type="Tables" />
+          <EntitySet Name="reservations" EntityType="Self.reservations" Schema="locationvoiture" store:Type="Tables" />
+          <EntitySet Name="succursales" EntityType="Self.succursales" Schema="locationvoiture" store:Type="Tables" />
+          <EntitySet Name="types" EntityType="Self.types" Schema="locationvoiture" store:Type="Tables" />
+          <EntitySet Name="vehicules" EntityType="Self.vehicules" Schema="locationvoiture" store:Type="Tables" />
+          <AssociationSet Name="fk_clientId" Association="Self.fk_clientId">
+            <End Role="clients" EntitySet="clients" />
+            <End Role="reservations" EntitySet="reservations" />
+          </AssociationSet>
+          <AssociationSet Name="fk_EmployeID" Association="Self.fk_EmployeID">
+            <End Role="employes" EntitySet="employes" />
+            <End Role="reservations" EntitySet="reservations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_location_employe" Association="Self.FK_location_employe">
+            <End Role="employes" EntitySet="employes" />
+            <End Role="locations" EntitySet="locations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_location_reservation" Association="Self.FK_location_reservation">
+            <End Role="reservations" EntitySet="reservations" />
+            <End Role="locations" EntitySet="locations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_location_vehicule" Association="Self.FK_location_vehicule">
+            <End Role="vehicules" EntitySet="vehicules" />
+            <End Role="locations" EntitySet="locations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_model_type" Association="Self.FK_model_type">
+            <End Role="types" EntitySet="types" />
+            <End Role="modeles" EntitySet="modeles" />
+          </AssociationSet>
+          <AssociationSet Name="fk_reservationID" Association="Self.fk_reservationID">
+            <End Role="reservations" EntitySet="reservations" />
+            <End Role="constats_dommages" EntitySet="constats_dommages" />
+          </AssociationSet>
+          <AssociationSet Name="fk_succursaleId" Association="Self.fk_succursaleId">
+            <End Role="succursales" EntitySet="succursales" />
+            <End Role="reservations" EntitySet="reservations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vehicule_fabriquant" Association="Self.FK_vehicule_fabriquant">
+            <End Role="fabriquants" EntitySet="fabriquants" />
+            <End Role="vehicules" EntitySet="vehicules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vehicule_model" Association="Self.FK_vehicule_model">
+            <End Role="modeles" EntitySet="modeles" />
+            <End Role="vehicules" EntitySet="vehicules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vehicule_succursale" Association="Self.FK_vehicule_succursale">
+            <End Role="succursales" EntitySet="succursales" />
+            <End Role="vehicules" EntitySet="vehicules" />
+          </AssociationSet>
+          <AssociationSet Name="fk_vehiculeId" Association="Self.fk_vehiculeId">
+            <End Role="vehicules" EntitySet="vehicules" />
+            <End Role="reservations" EntitySet="reservations" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="locationvoitureModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="administrateur">
+          <Key>
+            <PropertyRef Name="administrateurID" />
+          </Key>
+          <Property Name="administrateurID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="password" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fonction" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="date_embauche" Type="DateTime" Nullable="false" />
+          <Property Name="salaire_horaire" Type="Single" />
+        </EntityType>
+        <EntityType Name="client">
+          <Key>
+            <PropertyRef Name="clientID" />
+          </Key>
+          <Property Name="clientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="password" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="date_enregistrement" Type="DateTime" Nullable="false" />
+          <Property Name="telephone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="adresse_client" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="num_carte_credit" Type="Int64" />
+          <Property Name="permis_conduire_num" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="assurance" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="courriel" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="reservations" Relationship="Self.fk_clientId" FromRole="clients" ToRole="reservations" />
+          <Property Name="prenom" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="constats_dommages">
+          <Key>
+            <PropertyRef Name="constantID" />
+          </Key>
+          <Property Name="constantID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="reservationID" Type="Int32" Nullable="false" />
+          <Property Name="employeID" Type="Int32" Nullable="false" />
+          <Property Name="date_constat" Type="DateTime" Nullable="false" />
+          <Property Name="description_dommages" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="reservation" Relationship="Self.fk_reservationID" FromRole="constats_dommages" ToRole="reservations" />
+        </EntityType>
+        <EntityType Name="employe">
+          <Key>
+            <PropertyRef Name="employeID" />
+          </Key>
+          <Property Name="employeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="password" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nom" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fonction" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="date_embauche" Type="DateTime" Nullable="false" />
+          <Property Name="salaire_horaire" Type="Single" />
+          <Property Name="succursaleID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="reservations" Relationship="Self.fk_EmployeID" FromRole="employes" ToRole="reservations" />
+          <NavigationProperty Name="locations" Relationship="locationvoitureModel.FK_location_employe" FromRole="employe" ToRole="location" />
+        </EntityType>
+        <EntityType Name="fabriquant">
+          <Key>
+            <PropertyRef Name="fabriquantID" />
+          </Key>
+          <Property Name="fabriquantID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom_fabriquant" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="addresse_service" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telephone_service" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="vehicules" Relationship="locationvoitureModel.FK_vehicule_fabriquant" FromRole="fabriquant" ToRole="vehicule" />
+        </EntityType>
+        <EntityType Name="location">
+          <Key>
+            <PropertyRef Name="locationID" />
+          </Key>
+          <Property Name="locationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date_debut" Type="DateTime" Nullable="false" />
+          <Property Name="date_fin" Type="DateTime" Nullable="false" />
+          <Property Name="reservationID" Type="Int32" />
+          <Property Name="vehiculeID" Type="Int32" Nullable="false" />
+          <Property Name="employeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="employe" Relationship="locationvoitureModel.FK_location_employe" FromRole="location" ToRole="employe" />
+          <NavigationProperty Name="reservation" Relationship="locationvoitureModel.FK_location_reservation" FromRole="location" ToRole="reservation" />
+          <NavigationProperty Name="vehicule" Relationship="locationvoitureModel.FK_location_vehicule" FromRole="location" ToRole="vehicule" />
+        </EntityType>
+        <EntityType Name="modele">
+          <Key>
+            <PropertyRef Name="modeleID" />
+          </Key>
+          <Property Name="modeleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="typeID" Type="Int32" Nullable="false" />
+          <Property Name="nom_modele" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nb_place" Type="Int32" />
+          <Property Name="consommation_carburant" Type="Single" />
+          <Property Name="transmission" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="type" Relationship="locationvoitureModel.FK_model_type" FromRole="modele" ToRole="type" />
+          <NavigationProperty Name="vehicules" Relationship="locationvoitureModel.FK_vehicule_model" FromRole="modele" ToRole="vehicule" />
+        </EntityType>
+        <EntityType Name="reservation">
+          <Key>
+            <PropertyRef Name="reservationID" />
+          </Key>
+          <Property Name="reservationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="clientID" Type="Int32" Nullable="false" />
+          <Property Name="employeID" Type="Int32" Nullable="false" />
+          <Property Name="vehiculeID" Type="Int32" Nullable="false" />
+          <Property Name="succursaleID" Type="Int32" Nullable="false" />
+          <Property Name="factureID" Type="Int32" />
+          <Property Name="date_appel_reservation" Type="DateTime" Nullable="false" />
+          <Property Name="date_debut_reservation" Type="DateTime" />
+          <Property Name="date_fin_reservation" Type="DateTime" />
+          <Property Name="date_prise_vehicule" Type="DateTime" />
+          <Property Name="date_retour_vehicule" Type="DateTime" />
+          <NavigationProperty Name="client" Relationship="Self.fk_clientId" FromRole="reservations" ToRole="clients" />
+          <NavigationProperty Name="constats_dommages" Relationship="Self.fk_reservationID" FromRole="reservations" ToRole="constats_dommages" />
+          <NavigationProperty Name="employe" Relationship="Self.fk_EmployeID" FromRole="reservations" ToRole="employes" />
+          <NavigationProperty Name="succursale" Relationship="Self.fk_succursaleId" FromRole="reservations" ToRole="succursales" />
+          <NavigationProperty Name="vehicule" Relationship="Self.fk_vehiculeId" FromRole="reservations" ToRole="vehicules" />
+          <NavigationProperty Name="locations" Relationship="locationvoitureModel.FK_location_reservation" FromRole="reservation" ToRole="location" />
+        </EntityType>
+        <EntityType Name="succursale">
+          <Key>
+            <PropertyRef Name="succursaleID" />
+          </Key>
+          <Property Name="succursaleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="addresse" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telephone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="courriel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="reservations" Relationship="Self.fk_succursaleId" FromRole="succursales" ToRole="reservations" />
+          <NavigationProperty Name="vehicules" Relationship="locationvoitureModel.FK_vehicule_succursale" FromRole="succursale" ToRole="vehicule" />
+          <Property Name="nom" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="type">
+          <Key>
+            <PropertyRef Name="typeID" />
+          </Key>
+          <Property Name="typeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom_type" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="commission" Type="Single" Nullable="false" />
+          <NavigationProperty Name="modeles" Relationship="locationvoitureModel.FK_model_type" FromRole="type" ToRole="modele" />
+          <Property Name="catégorie" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vehicule">
+          <Key>
+            <PropertyRef Name="vehiculeID" />
+          </Key>
+          <Property Name="vehiculeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="modeleID" Type="Int32" Nullable="false" />
+          <Property Name="fabriquantID" Type="Int32" Nullable="false" />
+          <Property Name="kilometrage" Type="Int32" />
+          <Property Name="plaque_num" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="loc_state" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="succursaleID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="reservations" Relationship="Self.fk_vehiculeId" FromRole="vehicules" ToRole="reservations" />
+          <NavigationProperty Name="fabriquant" Relationship="locationvoitureModel.FK_vehicule_fabriquant" FromRole="vehicule" ToRole="fabriquant" />
+          <NavigationProperty Name="locations" Relationship="locationvoitureModel.FK_location_vehicule" FromRole="vehicule" ToRole="location" />
+          <NavigationProperty Name="modele" Relationship="locationvoitureModel.FK_vehicule_model" FromRole="vehicule" ToRole="modele" />
+          <NavigationProperty Name="succursale" Relationship="locationvoitureModel.FK_vehicule_succursale" FromRole="vehicule" ToRole="succursale" />
+        </EntityType>
+        <Association Name="fk_clientId">
+          <End Role="clients" Type="Self.client" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="reservations" Type="Self.reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clients">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="reservations">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_reservationID">
+          <End Role="reservations" Type="Self.reservation" Multiplicity="1" />
+          <End Role="constats_dommages" Type="Self.constats_dommages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="reservations">
+              <PropertyRef Name="reservationID" />
+            </Principal>
+            <Dependent Role="constats_dommages">
+              <PropertyRef Name="reservationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_EmployeID">
+          <End Role="employes" Type="Self.employe" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="reservations" Type="Self.reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employes">
+              <PropertyRef Name="employeID" />
+            </Principal>
+            <Dependent Role="reservations">
+              <PropertyRef Name="employeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_succursaleId">
+          <End Role="succursales" Type="Self.succursale" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="reservations" Type="Self.reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="succursales">
+              <PropertyRef Name="succursaleID" />
+            </Principal>
+            <Dependent Role="reservations">
+              <PropertyRef Name="succursaleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_vehiculeId">
+          <End Role="vehicules" Type="Self.vehicule" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="reservations" Type="Self.reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vehicules">
+              <PropertyRef Name="vehiculeID" />
+            </Principal>
+            <Dependent Role="reservations">
+              <PropertyRef Name="vehiculeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="locationvoitureEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="administrateurs" EntityType="Self.administrateur" />
+          <EntitySet Name="clients" EntityType="Self.client" />
+          <EntitySet Name="constats_dommages" EntityType="Self.constats_dommages" />
+          <EntitySet Name="employes" EntityType="Self.employe" />
+          <EntitySet Name="fabriquants" EntityType="Self.fabriquant" />
+          <EntitySet Name="locations" EntityType="Self.location" />
+          <EntitySet Name="modeles" EntityType="Self.modele" />
+          <EntitySet Name="reservations" EntityType="Self.reservation" />
+          <EntitySet Name="succursales" EntityType="Self.succursale" />
+          <EntitySet Name="types" EntityType="Self.type" />
+          <EntitySet Name="vehicules" EntityType="Self.vehicule" />
+          <AssociationSet Name="fk_clientId" Association="Self.fk_clientId">
+            <End Role="clients" EntitySet="clients" />
+            <End Role="reservations" EntitySet="reservations" />
+          </AssociationSet>
+          <AssociationSet Name="fk_reservationID" Association="Self.fk_reservationID">
+            <End Role="reservations" EntitySet="reservations" />
+            <End Role="constats_dommages" EntitySet="constats_dommages" />
+          </AssociationSet>
+          <AssociationSet Name="fk_EmployeID" Association="Self.fk_EmployeID">
+            <End Role="employes" EntitySet="employes" />
+            <End Role="reservations" EntitySet="reservations" />
+          </AssociationSet>
+          <AssociationSet Name="fk_succursaleId" Association="Self.fk_succursaleId">
+            <End Role="succursales" EntitySet="succursales" />
+            <End Role="reservations" EntitySet="reservations" />
+          </AssociationSet>
+          <AssociationSet Name="fk_vehiculeId" Association="Self.fk_vehiculeId">
+            <End Role="vehicules" EntitySet="vehicules" />
+            <End Role="reservations" EntitySet="reservations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_location_employe" Association="locationvoitureModel.FK_location_employe">
+            <End Role="employe" EntitySet="employes" />
+            <End Role="location" EntitySet="locations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vehicule_fabriquant" Association="locationvoitureModel.FK_vehicule_fabriquant">
+            <End Role="fabriquant" EntitySet="fabriquants" />
+            <End Role="vehicule" EntitySet="vehicules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_location_reservation" Association="locationvoitureModel.FK_location_reservation">
+            <End Role="reservation" EntitySet="reservations" />
+            <End Role="location" EntitySet="locations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_location_vehicule" Association="locationvoitureModel.FK_location_vehicule">
+            <End Role="vehicule" EntitySet="vehicules" />
+            <End Role="location" EntitySet="locations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_model_type" Association="locationvoitureModel.FK_model_type">
+            <End Role="type" EntitySet="types" />
+            <End Role="modele" EntitySet="modeles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vehicule_model" Association="locationvoitureModel.FK_vehicule_model">
+            <End Role="modele" EntitySet="modeles" />
+            <End Role="vehicule" EntitySet="vehicules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vehicule_succursale" Association="locationvoitureModel.FK_vehicule_succursale">
+            <End Role="succursale" EntitySet="succursales" />
+            <End Role="vehicule" EntitySet="vehicules" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="FK_location_employe">
+          <End Type="locationvoitureModel.employe" Role="employe" Multiplicity="1" />
+          <End Type="locationvoitureModel.location" Role="location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employe">
+              <PropertyRef Name="employeID" />
+            </Principal>
+            <Dependent Role="location">
+              <PropertyRef Name="employeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vehicule_fabriquant">
+          <End Type="locationvoitureModel.fabriquant" Role="fabriquant" Multiplicity="1" />
+          <End Type="locationvoitureModel.vehicule" Role="vehicule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fabriquant">
+              <PropertyRef Name="fabriquantID" />
+            </Principal>
+            <Dependent Role="vehicule">
+              <PropertyRef Name="fabriquantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_location_reservation">
+          <End Type="locationvoitureModel.reservation" Role="reservation" Multiplicity="0..1" />
+          <End Type="locationvoitureModel.location" Role="location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="reservation">
+              <PropertyRef Name="reservationID" />
+            </Principal>
+            <Dependent Role="location">
+              <PropertyRef Name="reservationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_location_vehicule">
+          <End Type="locationvoitureModel.vehicule" Role="vehicule" Multiplicity="1" />
+          <End Type="locationvoitureModel.location" Role="location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vehicule">
+              <PropertyRef Name="vehiculeID" />
+            </Principal>
+            <Dependent Role="location">
+              <PropertyRef Name="vehiculeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_model_type">
+          <End Type="locationvoitureModel.type" Role="type" Multiplicity="1" />
+          <End Type="locationvoitureModel.modele" Role="modele" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="type">
+              <PropertyRef Name="typeID" />
+            </Principal>
+            <Dependent Role="modele">
+              <PropertyRef Name="typeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vehicule_model">
+          <End Type="locationvoitureModel.modele" Role="modele" Multiplicity="1" />
+          <End Type="locationvoitureModel.vehicule" Role="vehicule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="modele">
+              <PropertyRef Name="modeleID" />
+            </Principal>
+            <Dependent Role="vehicule">
+              <PropertyRef Name="modeleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vehicule_succursale">
+          <End Type="locationvoitureModel.succursale" Role="succursale" Multiplicity="1" />
+          <End Type="locationvoitureModel.vehicule" Role="vehicule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="succursale">
+              <PropertyRef Name="succursaleID" />
+            </Principal>
+            <Dependent Role="vehicule">
+              <PropertyRef Name="succursaleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="locationvoitureModelStoreContainer" CdmEntityContainer="locationvoitureEntities">
+          <EntitySetMapping Name="administrateurs">
+            <EntityTypeMapping TypeName="locationvoitureModel.administrateur">
+              <MappingFragment StoreEntitySet="administrateurs">
+                <ScalarProperty Name="administrateurID" ColumnName="administrateurID" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="fonction" ColumnName="fonction" />
+                <ScalarProperty Name="date_embauche" ColumnName="date_embauche" />
+                <ScalarProperty Name="salaire_horaire" ColumnName="salaire_horaire" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="clients">
+            <EntityTypeMapping TypeName="locationvoitureModel.client">
+              <MappingFragment StoreEntitySet="clients">
+                <ScalarProperty Name="prenom" ColumnName="prenom" />
+                <ScalarProperty Name="clientID" ColumnName="clientID" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="date_enregistrement" ColumnName="date_enregistrement" />
+                <ScalarProperty Name="telephone" ColumnName="telephone" />
+                <ScalarProperty Name="adresse_client" ColumnName="adresse_client" />
+                <ScalarProperty Name="num_carte_credit" ColumnName="num_carte_credit" />
+                <ScalarProperty Name="permis_conduire_num" ColumnName="permis_conduire_num" />
+                <ScalarProperty Name="assurance" ColumnName="assurance" />
+                <ScalarProperty Name="courriel" ColumnName="courriel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="constats_dommages">
+            <EntityTypeMapping TypeName="locationvoitureModel.constats_dommages">
+              <MappingFragment StoreEntitySet="constats_dommages">
+                <ScalarProperty Name="constantID" ColumnName="constantID" />
+                <ScalarProperty Name="reservationID" ColumnName="reservationID" />
+                <ScalarProperty Name="employeID" ColumnName="employeID" />
+                <ScalarProperty Name="date_constat" ColumnName="date_constat" />
+                <ScalarProperty Name="description_dommages" ColumnName="description_dommages" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="employes">
+            <EntityTypeMapping TypeName="locationvoitureModel.employe">
+              <MappingFragment StoreEntitySet="employes">
+                <ScalarProperty Name="employeID" ColumnName="employeID" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="fonction" ColumnName="fonction" />
+                <ScalarProperty Name="date_embauche" ColumnName="date_embauche" />
+                <ScalarProperty Name="salaire_horaire" ColumnName="salaire_horaire" />
+                <ScalarProperty Name="succursaleID" ColumnName="succursaleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fabriquants">
+            <EntityTypeMapping TypeName="locationvoitureModel.fabriquant">
+              <MappingFragment StoreEntitySet="fabriquants">
+                <ScalarProperty Name="fabriquantID" ColumnName="fabriquantID" />
+                <ScalarProperty Name="nom_fabriquant" ColumnName="nom_fabriquant" />
+                <ScalarProperty Name="addresse_service" ColumnName="addresse_service" />
+                <ScalarProperty Name="telephone_service" ColumnName="telephone_service" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="locations">
+            <EntityTypeMapping TypeName="locationvoitureModel.location">
+              <MappingFragment StoreEntitySet="locations">
+                <ScalarProperty Name="locationID" ColumnName="locationID" />
+                <ScalarProperty Name="date_debut" ColumnName="date_debut" />
+                <ScalarProperty Name="date_fin" ColumnName="date_fin" />
+                <ScalarProperty Name="reservationID" ColumnName="reservationID" />
+                <ScalarProperty Name="vehiculeID" ColumnName="vehiculeID" />
+                <ScalarProperty Name="employeID" ColumnName="employeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="modeles">
+            <EntityTypeMapping TypeName="locationvoitureModel.modele">
+              <MappingFragment StoreEntitySet="modeles">
+                <ScalarProperty Name="modeleID" ColumnName="modeleID" />
+                <ScalarProperty Name="typeID" ColumnName="typeID" />
+                <ScalarProperty Name="nom_modele" ColumnName="nom_modele" />
+                <ScalarProperty Name="nb_place" ColumnName="nb_place" />
+                <ScalarProperty Name="consommation_carburant" ColumnName="consommation_carburant" />
+                <ScalarProperty Name="transmission" ColumnName="transmission" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="reservations">
+            <EntityTypeMapping TypeName="locationvoitureModel.reservation">
+              <MappingFragment StoreEntitySet="reservations">
+                <ScalarProperty Name="reservationID" ColumnName="reservationID" />
+                <ScalarProperty Name="clientID" ColumnName="clientID" />
+                <ScalarProperty Name="employeID" ColumnName="employeID" />
+                <ScalarProperty Name="vehiculeID" ColumnName="vehiculeID" />
+                <ScalarProperty Name="succursaleID" ColumnName="succursaleID" />
+                <ScalarProperty Name="factureID" ColumnName="factureID" />
+                <ScalarProperty Name="date_appel_reservation" ColumnName="date_appel_reservation" />
+                <ScalarProperty Name="date_debut_reservation" ColumnName="date_debut_reservation" />
+                <ScalarProperty Name="date_fin_reservation" ColumnName="date_fin_reservation" />
+                <ScalarProperty Name="date_prise_vehicule" ColumnName="date_prise_vehicule" />
+                <ScalarProperty Name="date_retour_vehicule" ColumnName="date_retour_vehicule" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="succursales">
+            <EntityTypeMapping TypeName="locationvoitureModel.succursale">
+              <MappingFragment StoreEntitySet="succursales">
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="succursaleID" ColumnName="succursaleID" />
+                <ScalarProperty Name="addresse" ColumnName="addresse" />
+                <ScalarProperty Name="telephone" ColumnName="telephone" />
+                <ScalarProperty Name="courriel" ColumnName="courriel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="types">
+            <EntityTypeMapping TypeName="locationvoitureModel.type">
+              <MappingFragment StoreEntitySet="types">
+                <ScalarProperty Name="catégorie" ColumnName="catégorie" />
+                <ScalarProperty Name="typeID" ColumnName="typeID" />
+                <ScalarProperty Name="nom_type" ColumnName="nom_type" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="commission" ColumnName="commission" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vehicules">
+            <EntityTypeMapping TypeName="locationvoitureModel.vehicule">
+              <MappingFragment StoreEntitySet="vehicules">
+                <ScalarProperty Name="vehiculeID" ColumnName="vehiculeID" />
+                <ScalarProperty Name="modeleID" ColumnName="modeleID" />
+                <ScalarProperty Name="fabriquantID" ColumnName="fabriquantID" />
+                <ScalarProperty Name="kilometrage" ColumnName="kilometrage" />
+                <ScalarProperty Name="plaque_num" ColumnName="plaque_num" />
+                <ScalarProperty Name="loc_state" ColumnName="loc_state" />
+                <ScalarProperty Name="succursaleID" ColumnName="succursaleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

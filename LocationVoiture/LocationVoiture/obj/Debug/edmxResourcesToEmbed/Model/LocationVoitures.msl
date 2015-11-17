@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="locationvoitureModelStoreContainer" CdmEntityContainer="locationvoitureEntities">
+    <EntitySetMapping Name="administrateurs">
+      <EntityTypeMapping TypeName="locationvoitureModel.administrateur">
+        <MappingFragment StoreEntitySet="administrateurs">
+          <ScalarProperty Name="administrateurID" ColumnName="administrateurID" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="fonction" ColumnName="fonction" />
+          <ScalarProperty Name="date_embauche" ColumnName="date_embauche" />
+          <ScalarProperty Name="salaire_horaire" ColumnName="salaire_horaire" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="clients">
+      <EntityTypeMapping TypeName="locationvoitureModel.client">
+        <MappingFragment StoreEntitySet="clients">
+          <ScalarProperty Name="prenom" ColumnName="prenom" />
+          <ScalarProperty Name="clientID" ColumnName="clientID" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="date_enregistrement" ColumnName="date_enregistrement" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+          <ScalarProperty Name="adresse_client" ColumnName="adresse_client" />
+          <ScalarProperty Name="num_carte_credit" ColumnName="num_carte_credit" />
+          <ScalarProperty Name="permis_conduire_num" ColumnName="permis_conduire_num" />
+          <ScalarProperty Name="assurance" ColumnName="assurance" />
+          <ScalarProperty Name="courriel" ColumnName="courriel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="constats_dommages">
+      <EntityTypeMapping TypeName="locationvoitureModel.constats_dommages">
+        <MappingFragment StoreEntitySet="constats_dommages">
+          <ScalarProperty Name="constantID" ColumnName="constantID" />
+          <ScalarProperty Name="reservationID" ColumnName="reservationID" />
+          <ScalarProperty Name="employeID" ColumnName="employeID" />
+          <ScalarProperty Name="date_constat" ColumnName="date_constat" />
+          <ScalarProperty Name="description_dommages" ColumnName="description_dommages" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="employes">
+      <EntityTypeMapping TypeName="locationvoitureModel.employe">
+        <MappingFragment StoreEntitySet="employes">
+          <ScalarProperty Name="employeID" ColumnName="employeID" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="fonction" ColumnName="fonction" />
+          <ScalarProperty Name="date_embauche" ColumnName="date_embauche" />
+          <ScalarProperty Name="salaire_horaire" ColumnName="salaire_horaire" />
+          <ScalarProperty Name="succursaleID" ColumnName="succursaleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fabriquants">
+      <EntityTypeMapping TypeName="locationvoitureModel.fabriquant">
+        <MappingFragment StoreEntitySet="fabriquants">
+          <ScalarProperty Name="fabriquantID" ColumnName="fabriquantID" />
+          <ScalarProperty Name="nom_fabriquant" ColumnName="nom_fabriquant" />
+          <ScalarProperty Name="addresse_service" ColumnName="addresse_service" />
+          <ScalarProperty Name="telephone_service" ColumnName="telephone_service" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="locations">
+      <EntityTypeMapping TypeName="locationvoitureModel.location">
+        <MappingFragment StoreEntitySet="locations">
+          <ScalarProperty Name="locationID" ColumnName="locationID" />
+          <ScalarProperty Name="date_debut" ColumnName="date_debut" />
+          <ScalarProperty Name="date_fin" ColumnName="date_fin" />
+          <ScalarProperty Name="reservationID" ColumnName="reservationID" />
+          <ScalarProperty Name="vehiculeID" ColumnName="vehiculeID" />
+          <ScalarProperty Name="employeID" ColumnName="employeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="modeles">
+      <EntityTypeMapping TypeName="locationvoitureModel.modele">
+        <MappingFragment StoreEntitySet="modeles">
+          <ScalarProperty Name="modeleID" ColumnName="modeleID" />
+          <ScalarProperty Name="typeID" ColumnName="typeID" />
+          <ScalarProperty Name="nom_modele" ColumnName="nom_modele" />
+          <ScalarProperty Name="nb_place" ColumnName="nb_place" />
+          <ScalarProperty Name="consommation_carburant" ColumnName="consommation_carburant" />
+          <ScalarProperty Name="transmission" ColumnName="transmission" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="reservations">
+      <EntityTypeMapping TypeName="locationvoitureModel.reservation">
+        <MappingFragment StoreEntitySet="reservations">
+          <ScalarProperty Name="reservationID" ColumnName="reservationID" />
+          <ScalarProperty Name="clientID" ColumnName="clientID" />
+          <ScalarProperty Name="employeID" ColumnName="employeID" />
+          <ScalarProperty Name="vehiculeID" ColumnName="vehiculeID" />
+          <ScalarProperty Name="succursaleID" ColumnName="succursaleID" />
+          <ScalarProperty Name="factureID" ColumnName="factureID" />
+          <ScalarProperty Name="date_appel_reservation" ColumnName="date_appel_reservation" />
+          <ScalarProperty Name="date_debut_reservation" ColumnName="date_debut_reservation" />
+          <ScalarProperty Name="date_fin_reservation" ColumnName="date_fin_reservation" />
+          <ScalarProperty Name="date_prise_vehicule" ColumnName="date_prise_vehicule" />
+          <ScalarProperty Name="date_retour_vehicule" ColumnName="date_retour_vehicule" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="succursales">
+      <EntityTypeMapping TypeName="locationvoitureModel.succursale">
+        <MappingFragment StoreEntitySet="succursales">
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="succursaleID" ColumnName="succursaleID" />
+          <ScalarProperty Name="addresse" ColumnName="addresse" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+          <ScalarProperty Name="courriel" ColumnName="courriel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="types">
+      <EntityTypeMapping TypeName="locationvoitureModel.type">
+        <MappingFragment StoreEntitySet="types">
+          <ScalarProperty Name="catégorie" ColumnName="catégorie" />
+          <ScalarProperty Name="typeID" ColumnName="typeID" />
+          <ScalarProperty Name="nom_type" ColumnName="nom_type" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="commission" ColumnName="commission" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vehicules">
+      <EntityTypeMapping TypeName="locationvoitureModel.vehicule">
+        <MappingFragment StoreEntitySet="vehicules">
+          <ScalarProperty Name="vehiculeID" ColumnName="vehiculeID" />
+          <ScalarProperty Name="modeleID" ColumnName="modeleID" />
+          <ScalarProperty Name="fabriquantID" ColumnName="fabriquantID" />
+          <ScalarProperty Name="kilometrage" ColumnName="kilometrage" />
+          <ScalarProperty Name="plaque_num" ColumnName="plaque_num" />
+          <ScalarProperty Name="loc_state" ColumnName="loc_state" />
+          <ScalarProperty Name="succursaleID" ColumnName="succursaleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4edbc63fc0ea4495a5754c118684aa56" Name="Diagram1">
+        <EntityTypeShape EntityType="locationvoitureModel.administrateur" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="locationvoitureModel.client" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="locationvoitureModel.constats_dommages" Width="1.5" PointX="5.25" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="locationvoitureModel.employe" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="locationvoitureModel.fabriquant" Width="1.5" PointX="5.5" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="locationvoitureModel.location" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="locationvoitureModel.modele" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="locationvoitureModel.reservation" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="locationvoitureModel.succursale" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="locationvoitureModel.type" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="locationvoitureModel.vehicule" Width="1.5" PointX="0.75" PointY="12.375" IsExpanded="true" />
+        <AssociationConnector Association="locationvoitureModel.fk_clientId" ManuallyRouted="false" />
+        <AssociationConnector Association="locationvoitureModel.fk_reservationID" ManuallyRouted="false" />
+        <AssociationConnector Association="locationvoitureModel.fk_EmployeID" ManuallyRouted="false" />
+        <AssociationConnector Association="locationvoitureModel.fk_succursaleId" ManuallyRouted="false" />
+        <AssociationConnector Association="locationvoitureModel.fk_vehiculeId" ManuallyRouted="false" />
+        <AssociationConnector Association="locationvoitureModel.FK_location_employe" />
+        <AssociationConnector Association="locationvoitureModel.FK_vehicule_fabriquant" />
+        <AssociationConnector Association="locationvoitureModel.FK_location_reservation" />
+        <AssociationConnector Association="locationvoitureModel.FK_location_vehicule" />
+        <AssociationConnector Association="locationvoitureModel.FK_model_type" />
+        <AssociationConnector Association="locationvoitureModel.FK_vehicule_model" />
+        <AssociationConnector Association="locationvoitureModel.FK_vehicule_succursale" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
